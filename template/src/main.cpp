@@ -2,45 +2,19 @@
 #include <spdlog/spdlog.h>
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include <iostream>
-#include <json/json.h>
-#include <json/value.h>
-#include <fstream>
-
-
-std::string app_name;
-
-bool load_config_file(std::string filename)
-{
-    Json::Value json;
-    std::ifstream file(filename);
-
-    if (file.good())
-    {
-        Json::Reader reader;
-        reader.parse(file, json);
-
-        app_name = json["app_name"].asString();
-
-        return true;
-    }
-    else {
-        spdlog::error("Configuration file not found");
-        return false;
-    }
-}
-
+#include "Config.h"
 
 int main()
 {    
-    load_config_file("conf.json");
+    config::load_config("conf.json");
     auto clogger = spdlog::stdout_color_mt("console");
+    spdlog::set_default_logger(clogger);
+    spdlog::set_level(spdlog::level::debug);
+    spdlog::debug("{} started", config::app_name);
+    
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML template works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
-
-    spdlog::set_default_logger(clogger);
-    spdlog::set_level(spdlog::level::debug);
-    spdlog::debug("{} started", app_name);
 
     while (window.isOpen())
     {

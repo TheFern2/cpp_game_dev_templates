@@ -28,9 +28,15 @@ if (UNIX)
 endif (UNIX)
 
 # Copy res dir to the binary directory
-#file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/res DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/res DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+# copy config.json
+file(COPY conf.json DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 if(MSVC)
+# copy jsoncpp
+file(COPY ${jsoncpp_DIR}/../../../bin/jsoncpp.dll DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
    foreach(lib ${SFML_LIBS})
       get_target_property(lib_path ${lib} LOCATION)
       file(COPY ${lib_path} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
