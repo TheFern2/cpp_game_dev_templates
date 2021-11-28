@@ -14,4 +14,4 @@ One of the things I dread when programming in cpp is the setup. In the process o
 
 ## Documentation on system setup
 
-- [Setup](docs/win64/setup.md)
+- [Windows Setup](docs/win/setup.md)

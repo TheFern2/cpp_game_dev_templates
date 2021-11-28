@@ -1,5 +1,12 @@
-#include "SDL.h"
+//#include "SDL.h"
+#if defined(__linux__)
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#elif defined(_WIN32)
+#include <SDL.h>
 #include <SDL_Image.h>
+#endif
+
 #include <spdlog/spdlog.h>
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Config.h"
