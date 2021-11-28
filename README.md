@@ -15,3 +15,11 @@ One of the things I dread when programming in cpp is the setup. In the process o
 ## Documentation on system setup
 
 - [Windows Setup](docs/win/setup.md)
+- [Linux Setup](docs/linux/setup.md)
+
+## TODO
+
+- Running projects on windows
+  - vs2019
+  - vscode
+- Running projects on linux

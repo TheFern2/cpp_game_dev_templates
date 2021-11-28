@@ -1,4 +1,4 @@
-#include "SDL.h"
+#include <SDL.h>
 #include <spdlog/spdlog.h>
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "Config.h"
