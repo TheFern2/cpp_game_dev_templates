@@ -1,0 +1,7 @@
+**/build/
+**/.vscode
+**/.vs
+.clangd
+compile_commands.json
+**/.DS_Store
+demo*/
